@@ -121,6 +121,7 @@ namespace mis_221_pa_5_Jwwilliams4
     
         static void TrainersEdit()
         {
+            //gets info needed to edit trainers.txt
             string name = "";
             string mail = "";
             string eMail = "";
@@ -175,6 +176,8 @@ namespace mis_221_pa_5_Jwwilliams4
                         BufferPush(name,mail,eMail,ID);
                     }        
             myfile.Close();
+
+            //updates buffer.txt with new info
             static void BufferPush(string name, string mail, string eMail, string ID)
             {
                 int count =0;
@@ -201,6 +204,8 @@ namespace mis_221_pa_5_Jwwilliams4
                 }
                 trainers.Close();
                 bufferWrite.Close();
+
+                //updates trainers.txt with correct info from buffer.txt
                 StreamReader bufferRead = new StreamReader("buffer.txt");
                 StreamWriter trainersWrite = new StreamWriter("trainers.txt");
                 string fileBuffer = bufferRead.ReadLine();
@@ -221,6 +226,7 @@ namespace mis_221_pa_5_Jwwilliams4
 
         static void TrainersDelete()
         {
+            //finds trainer to delete and puts all other info into buffer.txt
             int count =0;
             Console.Clear();
             StreamReader trainers = new StreamReader("trainers.txt");
@@ -244,6 +250,8 @@ namespace mis_221_pa_5_Jwwilliams4
             }
             trainers.Close();
             bufferWrite.Close();
+
+            //updates trainers.txt from buffer.txt
             StreamReader bufferRead = new StreamReader("buffer.txt");
             StreamWriter trainersWrite = new StreamWriter("trainers.txt");
             string fileBuffer = bufferRead.ReadLine();
